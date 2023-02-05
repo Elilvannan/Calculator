@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcutor</title>
+</head>
+<script>
+    function add(){
+        var display_value=0, last_value=0;
+        display_value=form_name.display.value;
+        last_value=display_value.charAt(display_value.length-1);
+        if(last_value!=''){
+            if(last_value=='-' || last_value=='*' ||last_value=='/'){
+                form_name.display.value=form_name.display.value.substring(0,form_name.display.value.length-1);
+                form_name.display.value=form_name.display.value + '+';    
+            }else  if(last_value !== '+'){
+                form_name.display.value=form_name.display.value + '+';
+            }
+        }
+        
+    }
+    
+    function mul(){
+        var display_value=0, last_value=0;
+        display_value=form_name.display.value;
+        last_value=display_value.charAt(display_value.length-1);
+        if(last_value!=''){
+            if(last_value=='-' || last_value=='+' ||last_value=='/'){
+                form_name.display.value=form_name.display.value.substring(0,form_name.display.value.length-1);
+                form_name.display.value=form_name.display.value + '*';    
+            }else  if(last_value !== '*'){
+                form_name.display.value=form_name.display.value + '*';
+            }
+        }
+    }
+
+    function div(){
+        var display_value=0, last_value=0;
+        display_value=form_name.display.value;
+        last_value=display_value.charAt(display_value.length-1);
+        if(last_value!=''){
+            if(last_value=='-' || last_value=='*' ||last_value=='+'){
+                form_name.display.value=form_name.display.value.substring(0,form_name.display.value.length-1);
+                form_name.display.value=form_name.display.value + '/';    
+            }else if(last_value !== '/') {
+
+                form_name.display.value=form_name.display.value + '/';
+            }
+        }
+    }
+    function sub(){
+        var display_value=0, last_value=0;
+        display_value=form_name.display.value;
+        last_value=display_value.charAt(display_value.length-1);
+        if(last_value!=''){
+            if(last_value=='+' || last_value=='*' ||last_value=='/'){
+                form_name.display.value=form_name.display.value.substring(0,form_name.display.value.length-1);
+                form_name.display.value=form_name.display.value + '-';    
+            }else  if(last_value !== '-'){
+                form_name.display.value=form_name.display.value + '-';
+            }
+        }
+    }    
+</script>
+
+<!-- style ------------------------------------- -->
+<style>
+    .main{
+        text-align: center;
+        /* width: 150px; */
+        padding: 10px;
+        margin-top: 5px;
+        margin-left: 25%;
+        margin-bottom: 25%;
+        margin-right: 25%;
+
+    }
+    .display_style{
+        text-align: center;
+        font-size: 30px;
+        width: 500px;
+        padding: 40px;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+    .form_name_class{
+        width: 500px;
+        background-color: azure;
+        padding: 10px;
+        margin-bottom: 5px;
+        
+    }
+    input[type=button]{
+        margin: 5px;
+        padding: 40px;
+        font-size: 35px;
+        width: 110px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: blanchedalmond;
+    }
+</style>
+
+<body>
+
+    <div class="main">
+        <form name="form_name" class="form_name_class">
+            <input type="text" class="display_style" name="display" placeholder="Enter Number and operators"> <br>
+            <input type="button" value="1" onclick="form_name.display.value+=1">
+            <input type="button" value="2" onclick="form_name.display.value+=2">
+            <input type="button" value="3" onclick="form_name.display.value+=3">
+            <input type="button" value="+"  onclick=add()><br>
+            <!-- wen we add value+=1. it will add 1 continusly-->
+             
+            <input type="button" value="4" onclick="form_name.display.value+=4"> 
+            <input type="button" value="5" onclick="form_name.display.value+=5">
+            <input type="button" value="6" onclick="form_name.display.value+=6"> 
+            <input type="button" value="-"  onclick=sub()><br>
+
+            <input type="button" value="7" onclick="form_name.display.value+=7">  
+            <input type="button" value="8" onclick="form_name.display.value+=8">
+            <input type="button" value="9" onclick="form_name.display.value+=9">
+            <input type="button" value="/"  onclick=div()> <br>
+
+            <input type="button" value="CL" onclick="form_name.display.value=''">
+            <input type="button" value="0" onclick="form_name.display.value+=0">
+            <input type="button" value="=" onclick="form_name.display.value=eval(form_name.display.value)">
+            <input type="button" value="*" onclick=mul()><br>
+        </form>
+    </div>
+</body>
+</html>
